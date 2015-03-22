@@ -62,7 +62,8 @@ Distribution-specific setup
     adduser --system --group --shell /bin/bash archiveteam
     apt-get install -y git-core libgnutls-dev screen python-dev python-pip bzip2 zlib1g-dev unzip
     pip install seesaw
-    su -c "cd /home/archiveteam; git clone https://github.com/ArchiveTeam/{{REPO_NAME}}.git; cd {{REPO_NAME}}; wget {{WPULL_DOWNLOAD_URL}}; unzip {{WPULL_DOWNLOAD_FILENAME}}" archiveteam
+    su -c "cd /home/archiveteam; git clone https://github.com/ArchiveTeam/{{REPO_NAME}}.git" archiveteam
+    su -c "cd /home/archiveteam/{{REPO_NAME}}/; wget {{WPULL_DOWNLOAD_URL}}; unzip {{WPULL_DOWNLOAD_FILENAME}}" archiveteam
     screen su -c "cd /home/archiveteam/{{REPO_NAME}}/; run-pipeline pipeline.py --concurrent 2 --address '127.0.0.1' YOURNICKHERE" archiveteam
     [... ctrl+A D to detach ...]
 
@@ -100,11 +101,12 @@ This supposedly fixes it:
 Ensure that you have the Arch equivalent of bzip2 installed as well.
 
 1. Make sure you have `python2-pip` installed.
-2. Install [https://aur.archlinux.org/packages/wget-lua/](the wget-lua package from the AUR). 
-3. Run `pip2 install seesaw`.
-4. Modify the run-pipeline script in seesaw to point at `#!/usr/bin/python2` instead of `#!/usr/bin/python`.
-5. `useradd --system --group users --shell /bin/bash --create-home archiveteam`
-6. `screen su -c "cd /home/archiveteam/{{REPO_NAME}}/; run-pipeline pipeline.py --concurrent 2 --address '127.0.0.1' YOURNICKHERE" archiveteam`
+2. Run `pip2 install seesaw`.
+3. Modify the run-pipeline script in seesaw to point at `#!/usr/bin/python2` instead of `#!/usr/bin/python`.
+4. `useradd --system --group users --shell /bin/bash --create-home archiveteam`
+5. `su -c "cd /home/archiveteam; git clone https://github.com/ArchiveTeam/{{REPO_NAME}}.git" archiveteam`
+6. `su -c "cd /home/archiveteam/{{REPO_NAME}}/; wget {{WPULL_DOWNLOAD_URL}}; unzip {{WPULL_DOWNLOAD_FILENAME}}" archiveteam`
+7. `screen su -c "cd /home/archiveteam/{{REPO_NAME}}/; run-pipeline pipeline.py --concurrent 2 --address '127.0.0.1' YOURNICKHERE" archiveteam`
 
 ### For FreeBSD:
 
