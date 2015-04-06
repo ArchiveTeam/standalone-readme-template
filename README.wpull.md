@@ -21,7 +21,7 @@ Running without a warrior
 -------------------------
 To run this outside the warrior, clone this repository, cd into its directory and run:
 
-    pip install seesaw
+    pip install --upgrade seesaw
 
 Grab a copy of Wpull {{WPULL_VERSION}} from https://launchpad.net/wpull/+download:
 
@@ -37,7 +37,7 @@ For more options, run:
 
     run-pipeline --help
 
-If you don't have root access and/or your version of pip is very old, you can replace "pip install seesaw" with:
+If you don't have root access and/or your version of pip is very old, you can replace "pip install --upgrade seesaw" with:
 
     wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py ; python get-pip.py --user ; ~/.local/bin/pip install --user seesaw
 
@@ -61,8 +61,8 @@ Distribution-specific setup
 ### For Debian/Ubuntu:
 
     adduser --system --group --shell /bin/bash archiveteam
-    apt-get install -y git-core libgnutls-dev screen python-dev python-pip bzip2 zlib1g-dev unzip
-    pip install seesaw
+    apt-get update && install -y git-core libgnutls-dev screen python-dev python-pip bzip2 zlib1g-dev unzip
+    pip install --upgrade seesaw
     su -c "cd /home/archiveteam; git clone https://github.com/ArchiveTeam/{{REPO_NAME}}.git" archiveteam
     su -c "cd /home/archiveteam/{{REPO_NAME}}/; wget {{WPULL_DOWNLOAD_URL}}; unzip {{WPULL_DOWNLOAD_FILENAME}}; chmod +x ./wpull" archiveteam
     screen su -c "cd /home/archiveteam/{{REPO_NAME}}/; run-pipeline pipeline.py --concurrent 2 --address '127.0.0.1' YOURNICKHERE" archiveteam
@@ -74,13 +74,13 @@ Distribution-specific setup
 Ensure that you have the CentOS equivalent of bzip2 installed as well. You might need the EPEL repository to be enabled.
 
     yum -y install gnutls-devel python-pip zlib-devel unzip
-    pip install seesaw
+    pip install --upgrade seesaw
     [... pretty much the same as above ...]
 
 ### For openSUSE:
 
     zypper install screen python-pip libgnutls-devel bzip2 python-devel gcc make unzip
-    pip install seesaw
+    pip install --upgrade seesaw
     [... pretty much the same as above ...]
 
 ### For OS X:
@@ -88,7 +88,7 @@ Ensure that you have the CentOS equivalent of bzip2 installed as well. You might
 You need Homebrew. Ensure that you have the OS X equivalent of bzip2 installed as well.
 
     brew install python gnutls unzip
-    pip install seesaw
+    pip install --upgrade seesaw
     [... pretty much the same as above ...]
 
 **There is a known issue with some packaged versions of rsync. If you get errors during the upload stage, {{REPO_NAME}} will not work with your rsync version.**
@@ -131,6 +131,12 @@ Please ensure that gnutls-dev(el) and openssl-dev(el) are installed.
 If you're sure that you followed the steps to install `seesaw`, permissions on your module directory may be set incorrectly. Try the following:
 
     chmod o+rX -R /usr/local/lib/python2.7/dist-packages
+
+### run-pipeline: command not found
+
+Install `seesaw` using `pip2` instead of `pip`.
+
+    pip2 install seesaw
 
 ### Issues in the code
 
