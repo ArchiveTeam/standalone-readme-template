@@ -134,6 +134,12 @@ If you're sure that you followed the steps to install `seesaw`, permissions on y
 
     chmod o+rX -R /usr/local/lib/python2.7/dist-packages
 
+### run-pipeline: command not found
+
+Install `seesaw` using `pip2` instead of `pip`.
+
+    pip2 install seesaw
+
 ### Issues in the code
 
 If you notice a bug and want to file a bug report, please use the GitHub issues tracker.
