@@ -80,11 +80,18 @@ Wget-lua is also available on [ArchiveTeam's PPA](https://launchpad.net/~archive
 
 ### For CentOS:
 
-Ensure that you have the CentOS equivalent of bzip2 installed as well. You will the EPEL repository to be enabled.
+Ensure that you have the CentOS equivalent of bzip2 installed as well. You will need the EPEL repository to be enabled.
 
-    yum -y install autoconf automake flex gnutls-devel lua-devel python-pip zlib-devel
+    yum -y groupinstall "Development Tools"
+    yum -y install gnutls-devel lua-devel python-pip zlib-devel zstd libzstd-devel git-core gperf lua-socket luarocks texinfo git rsync gettext-devel
     pip install --upgrade seesaw
     [... pretty much the same as above ...]
+
+Tested with EL7 repositories.
+
+### For Fedora:
+
+The same as CentOS but with "dnf" instead of "yum". Did not successfully test compiling, so far.
 
 ### For openSUSE:
 
