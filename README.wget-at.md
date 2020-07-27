@@ -58,6 +58,7 @@ Distribution-specific setup
 Package `libzstd-dev` version 1.4.4 is required which is currently available from `buster-backports`.
 
     adduser --system --group --shell /bin/bash archiveteam
+    echo deb http://deb.debian.org/debian buster-backports main contrib > /etc/apt/sources.list.d/backports.list
     apt-get update \
     && apt-get install -y git-core libgnutls-dev lua5.1 liblua5.1-0 liblua5.1-0-dev screen python-dev python-pip bzip2 zlib1g-dev flex autoconf autopoint texinfo gperf lua-socket rsync \
     && apt-get -t buster-backports install zstd libzstd-dev libzstd1
@@ -69,6 +70,7 @@ Package `libzstd-dev` version 1.4.4 is required which is currently available fro
 In __Debian Jessie, Ubuntu 18.04 Bionic and above__, the `libgnutls-dev` package was renamed to `libgnutls28-dev`. So, you need to do the following instead:
 
     adduser --system --group --shell /bin/bash archiveteam
+    echo deb http://deb.debian.org/debian buster-backports main contrib > /etc/apt/sources.list.d/backports.list
     apt-get update \
     && apt-get install -y git-core libgnutls28-dev lua5.1 liblua5.1-0 liblua5.1-0-dev screen python-dev python-pip bzip2 zlib1g-dev flex autoconf autopoint texinfo gperf lua-socket rsync \
     && apt-get -t buster-backports install zstd libzstd-dev libzstd1
