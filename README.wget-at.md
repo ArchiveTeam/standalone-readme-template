@@ -66,7 +66,7 @@ Package `libzstd-dev` version 1.4.4 is required which is currently available fro
     python3 -m pip install setuptools wheel
     python3 -m pip install --upgrade seesaw zstandard requests
     su -c "cd /home/archiveteam; git clone https://github.com/ArchiveTeam/{{REPO_NAME}}.git; cd {{REPO_NAME}}; ./get-wget-lua.sh" archiveteam
-    screen su -c "cd /home/archiveteam/{{REPO_NAME}}/; run-pipeline pipeline.py --concurrent 2 --address '127.0.0.1' YOURNICKHERE" archiveteam
+    screen su -c "cd /home/archiveteam/{{REPO_NAME}}/; run-pipeline3 pipeline.py --concurrent 2 --address '127.0.0.1' YOURNICKHERE" archiveteam
     [... ctrl+A D to detach ...]
 
 In __Debian Jessie, Ubuntu 18.04 Bionic and above__, the `libgnutls-dev` package was renamed to `libgnutls28-dev`. So, you need to do the following instead:
