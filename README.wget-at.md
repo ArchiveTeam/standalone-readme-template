@@ -180,5 +180,5 @@ Are you a developer? Help write code for us! Look at our [developer documentatio
 
 ### Other problems
 
-Have an issue not listed here? Join us on IRC and ask! We can be found at hackint IRC [#{{IRC_CHANNEL}}](https://webirc.hackint.org/#irc://irc.hackint.org/${{IRC_CHANNEL}).
+Have an issue not listed here? Join us on IRC and ask! We can be found at hackint IRC [#{{IRC_CHANNEL}}](https://webirc.hackint.org/#irc://irc.hackint.org/#{{IRC_CHANNEL}}).
 
