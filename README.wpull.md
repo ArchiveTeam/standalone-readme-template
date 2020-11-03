@@ -111,7 +111,7 @@ Ensure that you have the Arch equivalent of bzip2 installed as well.
 
 ### For FreeBSD:
 
-Nothing specific here. If not so, please do let us know on IRC (irc.efnet.org #archiveteam).
+Nothing specific here. If not so, please do let us know on IRC (irc.hackint.org #archiveteam).
 
 Troubleshooting
 =========================

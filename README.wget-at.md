@@ -137,7 +137,7 @@ Ensure that you have the Arch equivalent of bzip2 installed as well.
 
 ### For FreeBSD:
 
-Honestly, I have no idea. `./get-wget-lua.sh` supposedly doesn't work due to differences in the `tar` that ships with FreeBSD. Another problem is the apparent absence of Lua 5.1 development headers. If you figure this out, please do let us know on IRC (irc.efnet.org #archiveteam).
+Honestly, I have no idea. `./get-wget-lua.sh` supposedly doesn't work due to differences in the `tar` that ships with FreeBSD. Another problem is the apparent absence of Lua 5.1 development headers. If you figure this out, please do let us know on IRC (irc.hackint.org #archiveteam).
 
 Troubleshooting
 =========================
