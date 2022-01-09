@@ -127,13 +127,30 @@ Ensure that you have the Arch equivalent of bzip2 installed as well.
 6. `screen su -c "cd /home/archiveteam/{{REPO_NAME}}/; run-pipeline pipeline.py --concurrent 2 --address '127.0.0.1' YOURNICKHERE" archiveteam`
 
 ### For Alpine Linux:
+    # Dependencies for wget-at & zstandard
+    apk update &&  apk add lua5.1 lua5.1-socket python3 py3-pip git gcc libc-dev \ 
+        lua5.1-dev zlib-dev gnutls-dev automake autoconf make bash \
+        bzip2 rsync flex gettext gettext-dev xz gperf texinfo wget coreutils ca-certificates
 
-    apk add lua5.1 git python bzip2 bash rsync gcc libc-dev lua5.1-dev zlib-dev gnutls-dev autoconf flex make
-    python -m ensurepip
-    pip install -U seesaw
+    # We need to build zstd 1.4.4 from source for compatibility with arguments provided from other Alpine builds
+    # Source: https://git.alpinelinux.org/aports/tree/main/zstd/APKBUILD?h=3.15-stable
+    git clone https://github.com/facebook/zstd.git --depth 1 --branch v1.4.4
+    cd zstd && export CFLAGS="-O2" && \
+        make -C lib HAVE_PTHREAD=1 HAVE_ZLIB=0 HAVE_LZMA=0 HAVE_LZ4=0 lib-mt && \
+        make -C programs HAVE_PTHREAD=1 HAVE_ZLIB=0 HAVE_LZMA=0 HAVE_LZ4=0 && \
+        make -C contrib/pzstd && \
+        make PREFIX="/usr" install && \
+        cd ..
+    
+    # Proceed as normal
     git clone https://github.com/ArchiveTeam/{{REPO_NAME}}
     cd {{REPO_NAME}}; ./get-wget-lua.sh
-    run-pipeline pipeline.py --concurrent 2 --address '127.0.0.1' YOURNICKHERE
+    
+    # if you want to use a virtualenv (sh/bash example)
+    python3 -m venv --prompt at .venv && source .venv/bin/activate
+    pip install --upgrade pip setuptools wheel
+    pip install --upgrade seesaw zstandard requests
+    run-pipeline3 pipeline.py --concurrent 2 --address '127.0.0.1' YOURNICKHERE
 
 ### For FreeBSD:
 
