@@ -12,7 +12,7 @@ Data integrity is very important in Archive Team projects. Please note the follo
 
 * [Do not use proxies or VPNs](https://wiki.archiveteam.org/index.php/ArchiveTeam_Warrior#Can_I_use_whatever_internet_access_for_the_Warrior?).
 * Run the project using the either the Warrior or the project-specific Docker container as listed below. [Do not modify project code](https://wiki.archiveteam.org/index.php/ArchiveTeam_Warrior#I'd_like_to_help_write_code_or_I_want_to_tweak_the_scripts_to_run_to_my_liking._Where_can_I_find_more_info?_Where_is_the_source_code_and_repository?). Compiling the project dependencies yourself is no longer supported.
-* Only use your tracker nickname(s) on machines you personally operate. Nickname sharing makes it harder to inspect data if a problem arises.
+* You can share your tracker nickname(s) across machine(s) you personally operate, but not with machines operated by other users. Nickname sharing makes it harder to inspect data if a problem arises.
 * [Use clean internet connections](https://wiki.archiveteam.org/index.php/ArchiveTeam_Warrior#Can_I_use_whatever_internet_access_for_the_Warrior?).
 * Only x64-based machines are supported. [ARM (used on Raspberry Pi and Apple Silicon Macs) is not currently supported](https://wiki.archiveteam.org/index.php/ArchiveTeam_Warrior#Can_I_run_the_Warrior_on_ARM_or_some_other_unusual_architecture?).
 * See the [Archive Team Wiki](https://wiki.archiveteam.org/index.php/ArchiveTeam_Warrior#Warrior_FAQ) for additional information.
@@ -40,8 +40,6 @@ after which the project can be run:
     docker run --name archiveteam --label=com.centurylinklabs.watchtower.enable=true --restart=unless-stopped atdr.meo.ws/archiveteam/{{REPO_NAME}} --concurrent 1 YOURNICKHERE
 
 Be sure to replace `YOURNICKHERE` with the nickname that you want to be shown as on the tracker. You don't need to register it, just pick a nickname you like.
-
-At this point, there will be a web interface running at http://localhost:8001/. If you don't know or care what this is, you can just ignore it—otherwise, it gives you a fancy view of what's going on.
 
 ### Issues in the code
 
