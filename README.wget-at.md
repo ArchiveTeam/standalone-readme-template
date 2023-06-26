@@ -31,13 +31,13 @@ This and other archiving projects can easily be run using the [Archive Team Warr
 
 Alternatively, more advanced users can also run projects using Docker. While users of the Warrior can switch between projects using a web interface, Docker containers are specific to each project. However, while the Warrior supports a maximum of 6 concurrent items, the Docker container supports a maximum of 20 concurrent items. The instructions below are a short overview. For more information and detailed explanations of the commands, follow the follow the [Docker instructions on the Archive Team wiki](https://wiki.archiveteam.org/index.php/Running_Archive_Team_Projects_with_Docker).
 
-It is advised to use watchtower to automatically update the project. This requires watchtower:
+It is advised to use watchtower to automatically update the project:
 
-    docker run --name watchtower --restart=unless-stopped -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --label-enable --cleanup --interval 3600
+    docker run -d --name watchtower --restart=unless-stopped -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --label-enable --cleanup --interval 3600
 
 after which the project can be run:
 
-    docker run --name archiveteam --label=com.centurylinklabs.watchtower.enable=true --restart=unless-stopped atdr.meo.ws/archiveteam/{{REPO_NAME}} --concurrent 1 YOURNICKHERE
+    docker run -d -name archiveteam --label=com.centurylinklabs.watchtower.enable=true --restart=unless-stopped atdr.meo.ws/archiveteam/{{REPO_NAME}} --concurrent 1 YOURNICKHERE
 
 Be sure to replace `YOURNICKHERE` with the nickname that you want to be shown as on the tracker. You don't need to register it, just pick a nickname you like.
 
