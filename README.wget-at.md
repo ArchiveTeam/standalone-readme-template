@@ -2,6 +2,10 @@
 
 More information about the archiving project can be found on the ArchiveTeam wiki: [{{PROJECT_NAME}}](https://wiki.archiveteam.org/index.php?title={{PROJECT_NAME}})
 
+## Donations
+
+Behind the scenes Archive Team has infrastructure to run the projects and process the data with. If you would like to help out with the costs of our infrastructure, a donation on our [Open Collective](https://opencollective.com/archiveteam) would be very welcome.
+
 ## Setup instructions
 
 ### General instructions
@@ -38,10 +42,6 @@ after which the project container can be run:
     docker run -d --name archiveteam --label=com.centurylinklabs.watchtower.enable=true --log-driver json-file --log-opt max-size=50m --restart=unless-stopped atdr.meo.ws/archiveteam/{{REPO_NAME}} --concurrent 1 YOURNICKHERE
 
 Be sure to replace `YOURNICKHERE` with the nickname that you want to be shown as on the tracker. There is no registration, just pick a nickname you like.
-
-### Supporting Archive Team
-
-Behind the scenes Archive Team has infrastructure to run the projects and process the data with. If you would like to help out with the costs of our infrastructure, a donation on our [Open Collective](https://opencollective.com/archiveteam) would be very welcome.
 
 ### Issues in the code
 
